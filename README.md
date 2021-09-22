@@ -7,4 +7,4 @@
 ##### H5
 ###### H6
 
-[I'm an inline-style link](https://www.google.com)
+[I'm an inline-style link](https://www.vut.cz/)
