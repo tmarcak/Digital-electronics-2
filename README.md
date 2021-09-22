@@ -1,6 +1,6 @@
 # Digital electronics 2
 
-# This is an <h1>
+# H1
 ## H2
 ### H3
 #### H4
