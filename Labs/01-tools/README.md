@@ -68,7 +68,7 @@ int main(void)
 		
 		// Gap between the letters
 		PORTB = PORTB & ~(1<<LED_GREEN);	// Led off
-		_delay_ms(LONG_DELAY);			// 1 unit
+		_delay_ms(LONG_DELAY);			// 3 units
 		
 		// Letter E
 		PORTB = PORTB ^ (1<<LED_GREEN);		// Led on
