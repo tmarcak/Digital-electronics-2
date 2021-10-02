@@ -134,10 +134,10 @@ int main(void)
     {
         if(bit_is_set(PIND, 2))
         {
-			PORTB = PORTB ^ (1<<LED_GREEN);
+	    PORTB = PORTB ^ (1<<LED_GREEN);
             PORTC = PORTC ^ (1<<LED_BLUE);
-			// Pause several milliseconds
-			_delay_ms(BLINK_DELAY);
+	    // Pause several milliseconds
+	    _delay_ms(BLINK_DELAY);
         
         }        
     }        
