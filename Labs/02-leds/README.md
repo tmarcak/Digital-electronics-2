@@ -8,7 +8,11 @@ Link to my `Digital-electronics-2` GitHub repository:
 
 1. Draw two basic ways to connect a LED to the output pin of the microcontroller: LED active-low, LED active-high.
 
+### Active High LED
+
 ![Active High LED](Images/active_high.png)
+
+### Active Low LED
 
 ![Active Low LED](Images/active_low.png)
 
@@ -23,7 +27,11 @@ Link to my `Digital-electronics-2` GitHub repository:
 
 3. Draw the basic ways to connect a push button to the microcontroller input pin: button active-low, button active-high.
 
+### Button Active High
+
 ![Active High Button](Images/active_high_button.png)
+
+### Button Active Low
 
 ![Active Low Button](Images/active_low_button.png)
 
@@ -97,7 +105,7 @@ int main(void)
     {
         // Pause several milliseconds
         _delay_ms(BLINK_DELAY);
-	// 
+	//Write your code here
         PORTB = PORTB ^ (1<<LED_GREEN);
         PORTC = PORTC ^ (1<<LED_BLUE);
     
