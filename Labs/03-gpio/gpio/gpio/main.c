@@ -43,19 +43,18 @@ int main(void)
 
     // Configure Push button at port D and enable internal pull-up resistor
     GPIO_config_input_pullup(&DDRD, BTN);
-    GPIO_read(&PORTD, BTN);
+    GPIO_write_high(&PORTD, BTN);
 
     // Infinite loop
     while (1)
     {
-        // WRITE YOUR CODE HERE
-        if (bit_is_clear(PIND, BTN))
-        {
-            _delay_ms(BLINK_DELAY);
-            PORTB = PORTB ^ (1<<LED_GREEN);
-            PORTC = PORTC ^ (1<<LED_RED);
-            _delay_ms(BLINK_DELAY);
-        }
+	    if (GPIO_read(&DDRD,BTN) == 0)
+	    {
+		    _delay_ms(BLINK_DELAY);
+
+		    GPIO_toggle(&DDRB, LED_GREEN);
+		    GPIO_toggle(&DDRC, LED_RED);
+	    }
     }
 
     // Will never reach this
