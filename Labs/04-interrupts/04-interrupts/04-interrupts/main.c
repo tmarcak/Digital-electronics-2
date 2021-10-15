@@ -16,6 +16,8 @@
 #define LED_D3  PB3
 #define LED_D4  PB2
 
+#define BUTTON  PC1
+
 /* Includes ----------------------------------------------------------*/
 #include <avr/io.h>         // AVR device-specific IO definitions
 #include <avr/interrupt.h>  // Interrupts standard C library for AVR-GCC
