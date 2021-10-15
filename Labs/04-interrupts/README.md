@@ -12,7 +12,7 @@ Link to my `Digital-electronics-2` GitHub repository:
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Timer/Counter0 | 8  | 16u | 128u | -- | 1.024m | -- | 4.096m | 16.384m |
 | Timer/Counter1 | 16 | 4.096m | 32.768m | -- | 262.144m | -- | 1.049 | 4.194 |
-| Timer/Counter2 | 8  | 16u | 128u | -- | 1.024m | -- | 4.096m | 16.384m |
+| Timer/Counter2 | 8  | 16u | 128u | 512u | 1.024m | 2.048m | 4.096m | 16.384m |
 
    ![Timer Overflow](Images/timer_overflow.png)
 
