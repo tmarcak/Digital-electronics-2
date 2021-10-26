@@ -18,9 +18,26 @@ Link to my `Digital-electronics-2` GitHub repository:
  * Function: Timer/Counter1 overflow interrupt
  * Purpose:  Increment counter value from 00 to 59.
  **********************************************************************/
+uint8_t unit = 0;
+uint8_t tens = 0;
+
 ISR(TIMER1_OVF_vect)
 {
-    // WRITE YOUR CODE HERE
+	unit++;
+
+	if(unit == 10)
+
+	{
+		tens++;
+		unit = 0;
+
+		if (tens == 6)
+
+		{
+			tens = 0;
+			unit = 0;
+		}
+	}
 
 }
 ```
@@ -32,10 +49,22 @@ ISR(TIMER1_OVF_vect)
  **********************************************************************/
 ISR(TIMER0_OVF_vect)
 {
-    static uint8_t pos = 0;
+	static uint8_t pos = 0;  // This line will only run the first time
+	
+	if(pos == 0)
 
-    // WRITE YOUR CODE HERE
+	{
+		SEG_update_shift_regs(unit,pos);
+		pos = 1;
+	}
 
+	else
+
+	{
+		SEG_update_shift_regs(tens,pos);
+		pos = 0;
+	}
+	
 }
 ```
 

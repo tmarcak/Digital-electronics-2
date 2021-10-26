@@ -34,9 +34,6 @@ int main(void)
     // Set the overflow prescaler to 262 ms and enable interrupt
       TIM1_overflow_262ms();
       TIM1_overflow_interrupt_enable();
-      
-      TIM0_overflow_1ms();
-      TIM0_overflow_interrupt_enable();
 
     // Enables interrupts by setting the global interrupt mask
     sei();
@@ -52,15 +49,28 @@ int main(void)
     return 0;
 }
 
-volatile uint8_t cnt[] = {0,0,0,0};
 
 /* Interrupt service routines ----------------------------------------*/
 /**********************************************************************
  * Function: Timer/Counter1 overflow interrupt
  * Purpose:  Increment decimal counter value and display it on SSD.
  **********************************************************************/
+uint8_t unit = 0;
+uint8_t tens = 0;
+
 ISR(TIMER1_OVF_vect)
 {
+	unit++;
+	if(unit == 10)
+	{
+		tens++;
+		unit = 0;
+		if (tens == 6)
+		{
+			tens = 0;
+			unit = 0;
+		}
+	}
 
 }
 
@@ -70,6 +80,17 @@ ISR(TIMER1_OVF_vect)
  **********************************************************************/
 ISR(TIMER0_OVF_vect)
 {
-    static uint8_t pos = 0;
-    
+	static uint8_t pos = 0;  // This line will only run the first time
+	
+	if(pos == 0)
+	{
+		SEG_update_shift_regs(unit,pos);
+		pos = 1;
+	}
+	else
+	{
+		SEG_update_shift_regs(tens,pos);
+		pos = 0;
+	}
+	
 }
