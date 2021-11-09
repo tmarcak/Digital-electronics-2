@@ -131,11 +131,14 @@ ISR(ADC_vect)
 
     lcd_gotoxy(8, 1);
     itoa(value, lcd_string, 10);
-    if (value>1000) {lcd_puts("none");}
-    if ((value>600)&&(value<1000)) {lcd_puts("Select");}
-    if ((value>350)&&(value<450)) {lcd_puts("Left");}
-    if ((value>200)&&(value<270)) {lcd_puts("Down");}
-    if ((value>5)&&(value<120)) {lcd_puts("Up");}
-    if (value==0) {lcd_puts("Right");}
+	if (value<50) {lcd_puts("Right");}
+	if ((value>51)&&(value<170)) {lcd_puts("Up");}
+	if ((value>171)&&(value<320)) {lcd_puts("Down");}
+	if ((value>321)&&(value<520)) {lcd_puts("Left");}	
+    if ((value>521)&&(value<800)) {lcd_puts("Select");}
+	if (value>801) {lcd_puts("none");}
+		
+    // UART 2xnewlines
+    uart_puts("\r\n\r\n");
         
 }
