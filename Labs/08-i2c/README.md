@@ -14,7 +14,7 @@ Link to my `Digital-electronics-2` GitHub repository:
    * SPI pins
    * external interrupt pins INT0, INT1
 
-   ![your figure](Images/arduino_uno_pinout.png)
+   ![Arudino Uno Pinout](Images/arduino_uno_pinout.png)
 
 ### I2C
 
